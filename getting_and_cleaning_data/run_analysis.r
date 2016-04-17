@@ -17,11 +17,11 @@ require("data.table")
 require("reshape2")
 
 # Load data files
-activity_labels <- read.table("~/Documents/R/UCI HAR Dataset/activity_labels.txt")[,2]
-features <- read.table("~/Documents/R/UCI HAR Dataset/features.txt")[,2]
-xtest <- read.table("~/Documents/R/UCI HAR Dataset/test/X_test.txt")
-ytest <- read.table("~/Documents/R/UCI HAR Dataset/test/Y_test.txt")
-test <- read.table("~/Documents/R/UCI HAR Dataset/test/subject_test.txt")
+activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")[,2]
+features <- read.table("./UCI HAR Dataset/features.txt")[,2]
+xtest <- read.table("./UCI HAR Dataset/test/X_test.txt")
+ytest <- read.table("~./UCI HAR Dataset/test/Y_test.txt")
+test <- read.table("~./UCI HAR Dataset/test/subject_test.txt")
 
 # Extract the mean and standard deviation
 remove_features <- grepl("mean|std", features)
@@ -34,10 +34,10 @@ names(ytest) = c("Activity_ID", "Activity_Label")
 names(test) = "subject"
 test_data <- cbind(as.data.table(test), ytest, xtest)
 
-xtrain <- read.table("~/Documents/R/UCI HAR Dataset/train/X_train.txt")
-ytrain <- read.table("~/Documents/R/UCI HAR Dataset/train/y_train.txt")
+xtrain <- read.table("./UCI HAR Dataset/train/X_train.txt")
+ytrain <- read.table("./UCI HAR Dataset/train/y_train.txt")
 
-train <- read.table("~/Documents/R/UCI HAR Dataset/train/subject_train.txt")
+train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 
 names(xtrain) = features
 
@@ -61,4 +61,4 @@ melt_data      = melt(data, id = id_labels, measure.vars = data_labels)
 
 # Apply mean function to dataset using dcast function
 tidy_data   = dcast(melt_data, subject + Activity_Label ~ variable, mean)
-write.table(tidy_data, file = "~/Documents/R/tidy_data.txt")
+write.table(tidy_data, file = "./tidy_data.txt")
