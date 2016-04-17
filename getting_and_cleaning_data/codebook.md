@@ -1,78 +1,62 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @jaharwood
- Watch 1
-  Star 0
- Fork 168 deduce/Getting-and-Cleaning-Data-Project
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathGetting-and-Cleaning-Data-Project/CodeBook.md
-1d593de  May 26, 2014
-@deduce deduce CodeBook.md added.
-1 contributor
-RawBlameHistory     65 lines (37 sloc)  3.68 KB
-CodeBook
-This is a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data.
+# CodeBook
+This is a code book that describes the variables, the data, and any transformations or work that I performed to clean up the data.
 
-The data source
+## The data sources
 
-Original data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-Original description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-Data Set Information
+* Original data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+* Original description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+## Data Set Info
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-The data
+## The data
 
 The dataset includes the following files:
 
-'README.txt'
+- 'README.txt'
 
-'features_info.txt': Shows information about the variables used on the feature vector.
+- 'features_info.txt': the variables used on the feature vector
 
-'features.txt': List of all features.
+- 'features.txt': all features
 
-'activity_labels.txt': Links the class labels with their activity name.
+- 'activity_labels.txt': associates activity name with class labels
 
-'train/X_train.txt': Training set.
+- 'train/X_train.txt': training data
 
-'train/y_train.txt': Training labels.
+- 'train/y_train.txt': training labels
 
-'test/X_test.txt': Test set.
+- 'test/X_test.txt': test dasta
 
-'test/y_test.txt': Test labels.
+- 'test/y_test.txt': test labels
 
-The following files are available for the train and test data. Their descriptions are equivalent.
+The following files are available for the train and test data
 
-'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+- 'train/subject_train.txt': shows subject who performed the activity for each window sample (range is from 1 to 30)
 
-'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis.
+- 'train/Inertial Signals/total_acc_x_train.txt': acceleration signal from the accelerometer X axis in 'g' units. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis.
 
-'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration.
+- 'train/Inertial Signals/body_acc_x_train.txt':body acceleration signal obtained by subtracting the gravity from the total acceleration
 
-'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
+- 'train/Inertial Signals/body_gyro_x_train.txt': angular velocity vector measured by the gyroscope for each window sample (radians/second)
 
-Transformation details
+
+## Assignment Details
 
 There are 5 parts:
 
-Merges the training and the test sets to create one data set.
-Extracts only the measurements on the mean and standard deviation for each measurement.
-Uses descriptive activity names to name the activities in the data set
-Appropriately labels the data set with descriptive activity names.
-Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-How run_analysis.R implements the above steps:
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive activity names.
+5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-Require reshapre2 and data.table librareis.
-Load both test and train data
-Load the features and activity labels.
-Extract the mean and standard deviation column names and data.
-Process the data. There are two parts processing test and train data respectively.
-Merge data set.
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
+## How ```run_analysis.R``` implements the above steps:
+
+* Require ```reshapre2``` and ```data.table``` libraries.
+* Load both test, train, features, and activity labels datasets.
+* Extract the mean and standard deviation of columns
+* Process the data
+* Merge datasets
